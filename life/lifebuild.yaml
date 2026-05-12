@@ -36,9 +36,9 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "4Gi"
+            memory: "5Gi"
           limits:
-            memory: "8Gi"
+            memory: "6Gi"
         ports:
           - containerPort: 25565
         env:
@@ -89,7 +89,7 @@ spec:
             value: "1015"
           # Minecraftバージョン
           - name: VERSION
-            value: 1.15.2
+            value: 1.21.11
           # 初期・最大メモリ
           - name: MAX_MEMORY
             value: 4G
