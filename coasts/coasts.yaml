@@ -36,10 +36,10 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
-              memory: "4Gi"
+              memory: "8Gi"
             limits:
               cpu: "10000m"
-              memory: "16Gi" # limitを超えるとpodが即座にOOMKilledされてしまうため(MAX_)MEMORY + 8Gぐらいにして余裕を持たせる
+              memory: "12Gi" # limitを超えるとpodが即座にOOMKilledされてしまうため(MAX_)MEMORY + 25%ぐらいにして余裕を持たせる
           ports:
             - containerPort: 25565
           env:
