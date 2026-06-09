@@ -36,10 +36,13 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:
+              cpu: "500m"
+              # heap領域(-Xmx)と同じ値か、それ以上にする。requestの値に対して十分な空きメモリがあれば、nodeにコンテナが作成される。
+              # k8sだけがこの値を使う。マイクラはこの値を無視し、JVMオプションで指定された値を初期メモリとして要求する。
               memory: "8Gi"
-            limits:
-              cpu: "10000m"
-              memory: "12Gi" # limitを超えるとpodが即座にOOMKilledされてしまうため(MAX_)MEMORY + 25%ぐらいにして余裕を持たせる
+            limits: # 必ず設定する。これがないと、k8sはマシンに無限のリソースがあると考える。
+              cpu: "5000m"
+              memory: "12Gi" # limit = heap領域 + off-heap領域 + 余裕分。目安はheap領域(-Xmx)の125%。limitを超えると即座にOOMKillされる。
           ports:
             - containerPort: 25565
           env:
