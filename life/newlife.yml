@@ -105,8 +105,8 @@ spec:
         volumeMounts:
         - name: server-data
           mountPath: /data
-        - name: hdd1-storage
-          mountPath: /data/plugins/TAB
+        # - name: hdd1-storage
+        #   mountPath: /data/plugins/TAB
           subPath: plugins/TAB
         - name: tab-config
           mountPath: /plugins/TAB/config.yml
@@ -115,17 +115,17 @@ spec:
         # - name: raid-storage
         #   mountPath: /mnt/raid/srv/life
       volumes:
-      - name: server-data
-        hostPath:
-          path: /mnt/hdd1/srv/newlife
-          type: Directory
+      # - name: server-data
+      #   hostPath:
+      #     path: /mnt/hdd1/srv/newlife
+      #     type: Directory
       - name: tab-config
         configMap:
           name: common-life-server-tab-config-with-pvelevel
-      - name: hdd1-storage
-        hostPath:
-          path: /mnt/hdd1/srv/newlife
-          type: Directory
+      # - name: hdd1-storage
+      #   hostPath:
+      #     path: /mnt/hdd1/srv/newlife
+      #     type: Directory
       priorityClassName: minecraft-other-server
       terminationGracePeriodSeconds: 60
 ---
