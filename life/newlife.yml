@@ -112,8 +112,8 @@ spec:
           mountPath: /plugins/TAB/config.yml
           subPath: config.yml
         # 要変更
-        - name: raid-storage
-          mountPath: /mnt/raid/srv/life
+        # - name: raid-storage
+        #   mountPath: /mnt/raid/srv/life
       volumes:
       - name: server-data
         hostPath:
